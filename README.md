@@ -1,9 +1,5 @@
 # Hell gate — Bounce Back Edition
 
-Gioco stealth in pixel art ambientato all'Haven di Acireale (Hack Club).
-Creato in Godot 4.6.3 con GDScript. Nessun addon necessario.
-Tema dell’evento: **Bounce Back** — cadere, imparare e tornare più forti.
-
 ## Giocare
 
 Completa le quattro fasi del gioco prima della demo. Lo schermo IA aperto
