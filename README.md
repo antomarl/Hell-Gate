@@ -4,12 +4,6 @@ Gioco stealth in pixel art ambientato all'Haven di Acireale (Hack Club).
 Creato in Godot 4.6.3 con GDScript. Nessun addon necessario.
 Tema dell’evento: **Bounce Back** — cadere, imparare e tornare più forti.
 
-## Aprire e modificare
-
-1. Installa Godot 4.6 (edizione standard, non serve .NET).
-2. Importa `project.godot` dal Project Manager.
-3. Premi F6 sulla scena `scenes/main.tscn`, oppure F5 per avviare il progetto.
-
 ## Giocare
 
 Completa le quattro fasi del gioco prima della demo. Lo schermo IA aperto
@@ -30,7 +24,7 @@ Menu con guida, opzioni e tre difficoltà. Record e impostazioni
 sono salvati localmente in `user://hellgate.cfg`. Il livello Incubo richiede
 una buona gestione della copertura e della distrazione.
 
-## Bounce Back: le nuove regole
+## Regole
 
 - **Checkpoint ogni 25%**: i rollback non cancellano mai una fase completata.
 - **Quattro bug di fase**, selezionati da otto problemi. La generazione si blocca:
@@ -49,11 +43,6 @@ una buona gestione della copertura e della distrazione.
 - **Difficoltà**: Tranquillo 200 s / 1 chance; Hackathon 175 s / 1 chance;
   Incubo 145 s / 1 chance. In Incubo il PC scalda più in fretta.
 
-La chat IA è una simulazione interna al gioco: non usa API, account o rete.
-Lo sguardo di Richard è rappresentato dall'alone. Quando appare ! hai un breve
-preavviso (0,8 secondi, 0,6 in Incubo) prima che il sospetto aumenti.
-L'organizzatore si muove tra mete casuali nel corridoio, con soste, ispezioni,
-velocità e dialoghi variabili. Dopo un'ispezione torna verso il fondo dell'aula.
 
 ## File principali
 
@@ -64,40 +53,4 @@ velocità e dialoghi variabili. Dopo un'ispezione torna verso il fondo dell'aula
 - `scripts/bugs.gd`: problemi di debug e risposte.
 - Il menu usa la stessa aula in pixel art della partita.
 
-## Export
 
-Installa i template di export Godot 4.6.3 dal menu Editor.
-I preset Web (senza thread, WebGL 2) e Linux x86_64 sono già configurati.
-
-```sh
-godot --headless --path . --export-release Web ../hell-gate-builds/web/index.html
-godot --headless --path . --export-release Linux ../hell-gate-builds/linux/hell-gate.x86_64
-```
-
-Per host con limiti alle dimensioni dei singoli file, dopo l’export:
-
-```sh
-python3 tools/package_web.py ../hell-gate-builds/web
-```
-
-Il loader ricompone in streaming i byte originali del motore da file più piccoli.
-
-La build Web va servita tramite HTTP(S); non si avvia aprendo il file HTML
-con doppio click. La build Linux è autonoma: non richiede Godot installato.
-
-## Verifiche
-
-```sh
-godot --headless --path . --script res://tests/test_game.gd
-godot --headless --path . --script res://tests/test_ui.gd
-```
-
-Verifica 90 partite con 30 semi per ciascuna delle tre difficoltà, esiti,
-pattuglie diverse e limitate al corridoio, copertura, abilità monouso e timer.
-Include anche fix corretti ed errati, checkpoint, calore, recovery riusciti,
-errori e timeout, pause durante il recupero e pulsanti del nuovo HUD.
-
-Licenze di motore e font incluse nella cartella assets.
-
-Test Incubo: `godot --headless --path . --script res://tests/test_nightmare.gd`.
-Simula 300 semi con decisioni ogni 300 ms e lettura del bug di 2 secondi.
